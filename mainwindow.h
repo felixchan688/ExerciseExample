@@ -19,4 +19,15 @@ private:
     Ui::MainWindow *ui;
 };
 
+class CenterWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit CenterWidget(QWidget *parent = 0);
+    //~CenterWidget();
+public slots:
+    void showExample();
+};
+
+
 #endif // MAINWINDOW_H
