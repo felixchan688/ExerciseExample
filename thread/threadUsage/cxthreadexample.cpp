@@ -8,7 +8,6 @@
 
 Worker1::Worker1(QObject *parent): QObject(parent)
 {
-
 }
 
 Worker1::~Worker1()
@@ -32,8 +31,6 @@ void Worker1::run()
     emit finish();
 }
 
-
-
 CxThreadExample::CxThreadExample(QObject *parent) : QObject(parent)
 {
     timer = new QTimer;
@@ -52,6 +49,7 @@ CxThreadExample::~CxThreadExample()
 void  CxThreadExample::exampleTest()
 {
     qDebug() << QThread::currentThreadId();
+#if 0
     Worker1 *w1 = new Worker1;
     QThread *t1 = new QThread;
     connect(t1, &QThread::started, w1, &Worker1::run);
@@ -67,4 +65,13 @@ void  CxThreadExample::exampleTest()
     //t1->wait(3);
     QEventLoop loop;
     loop.exec();
+#else
+    ConditionProducer *t1 = new ConditionProducer;
+    ConditionConsumer *t2 = new ConditionConsumer;
+    t1->start();
+    t2->start();
+
+    t1->wait(3);
+    t2->wait(3);
+#endif
 }
