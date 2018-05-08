@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "Network/Exercise/networkexercisewin.h"
 #include "thread/threadUsage/cxthreadexample.h"
+#include "json/cxjsonexample.h"
 
 #include <QPushButton>
 #include <QGridLayout>
@@ -25,6 +26,13 @@ CenterWidget::CenterWidget(QWidget *parent): QWidget(parent)
     btn->setObjectName(QString("thread"));
     connect(btn, SIGNAL(clicked(bool)), this, SLOT(showExample()));
     layout->addWidget(btn, 0, 1, 1, 1);
+
+    btn = new QPushButton(this);
+    btn->setText(tr("json"));
+    btn->setObjectName(QString("json"));
+    connect(btn, SIGNAL(clicked(bool)), this, SLOT(showExample()));
+    layout->addWidget(btn, 1, 0, 1, 1);
+
     this->setLayout(layout);
 }
 
@@ -40,6 +48,11 @@ void CenterWidget::showExample()
     {
         CxThreadExample exmaple;
         exmaple.exampleTest();
+    }
+    else if (objName == QString("json"))
+    {
+        CxJsonExample jsonExample;
+        jsonExample.jsonCreationExample();
     }
 }
 

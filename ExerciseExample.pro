@@ -34,3 +34,4 @@ INCLUDEPATH += $$PWD
 
 include(network/network.pri)
 include(thread/thread.pri)
+include(json/json.pri)
