@@ -23,6 +23,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
+include(network/network.pri)
+include(thread/thread.pri)
+include(json/json.pri)
+include(images/images.pri)
+include(graphicsItem/graphicsItem.pri)
+include(animation/animation.pri)
+
 SOURCES += main.cpp\
         mainwindow.cpp
 
@@ -32,6 +39,4 @@ FORMS    += mainwindow.ui
 
 INCLUDEPATH += $$PWD
 
-include(network/network.pri)
-include(thread/thread.pri)
-include(json/json.pri)
+
